@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '6.9.5'
+install:
+  - ./scripts/ci/install.sh
+before_install:
+  - chmod +x ./scripts/ci/install.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
