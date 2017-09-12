@@ -5,7 +5,9 @@ SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
 
 function doCompile {
-  gulp build
+    echo "build started."
+    gulp build
+    echo "build completed."
 }
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
@@ -44,6 +46,7 @@ if git diff --quiet; then
     exit 0
 fi
 
+  echo "Preparing to Deploy to GitHub Pages."
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A .
